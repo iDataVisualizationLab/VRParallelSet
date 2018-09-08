@@ -121,9 +121,9 @@
 
                 medianLine.enter().append("line")
                     .attr("class", "median")
-                    .attr("x1", 0 + width*(0.5 - 0.4))
+                    .attr("x1", 0 + width*(0.5 - 0.5))
                     .attr("y1", x0)
-                    .attr("x2", 0 + width*(0.5 + 0.4))
+                    .attr("x2", 0 + width*(0.5 + 0.5))
                     .attr("y2", x0)
                     .transition()
                     .duration(duration)

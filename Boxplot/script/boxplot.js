@@ -23,9 +23,9 @@ d3.csv("./data/data.csv", function(error, csv) {
     // add more rows if your csv file has more columns
 
     // add here the header of the csv file
-    data[0][0] = "2D plot";
-    data[1][0] = "3D plot";
-    data[2][0] = "VR with 3D plot";
+    data[0][0] = "2D";
+    data[1][0] = "3D";
+    data[2][0] = "VR";
     //data[3][0] = "Q4";
     // add more rows if your csv file has more columns
 
@@ -94,13 +94,14 @@ d3.csv("./data/data.csv", function(error, csv) {
 
 
     // add a title
-    svg.append("text")
+    /*svg.append("text")
         .attr("x", (width / 2))
         .attr("y", 0 + (margin.top / 2))
         .attr("text-anchor", "middle")
         .style("font-size", "18px")
         //.style("text-decoration", "underline")
-        .text("Complete Time");
+        .text("Completion time for user to finish Quizz on Titanic base on diferent model ")
+        .style("background-color",color(2));*/
 
     // draw y axis
     svg.append("g")
@@ -110,6 +111,7 @@ d3.csv("./data/data.csv", function(error, csv) {
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
+        .attr("dx", "-1.8em")
         .style("text-anchor", "end")
         .style("font-size", "16px")
         .text("Time response (sec)");
@@ -124,8 +126,8 @@ d3.csv("./data/data.csv", function(error, csv) {
         .attr("y",  10 )
         .attr("dy", "1.5em")
         .style("text-anchor", "middle")
-        .style("font-size", "16px")
-        .text("Model");
+        .style("font-size", "20px");
+        //.text("Model");
 });
 
 // Returns a function to compute the interquartile range.
