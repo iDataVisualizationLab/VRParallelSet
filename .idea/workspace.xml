@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d60b4b62-ad8c-4d73-9bcc-c79f3eab2881" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Boxplot/index.html" afterPath="$PROJECT_DIR$/Boxplot/index.html" />
-      <change beforePath="$PROJECT_DIR$/Boxplot/script/box.js" afterPath="$PROJECT_DIR$/Boxplot/script/box.js" />
-      <change beforePath="$PROJECT_DIR$/Boxplot/script/boxplot.js" afterPath="$PROJECT_DIR$/Boxplot/script/boxplot.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Boxplot/data/data_accuracy.csv" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Boxplot/index-accuracy.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Boxplot/script/boxplot_accuracy.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Boxplot/index.html" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,21 +20,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Boxplot/index.html">
+      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Boxplot/data/data.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+            <state relative-caret-position="153">
+              <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Boxplot/data/data.csv">
+      <file leaf-file-name="index-accuracy.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Boxplot/index-accuracy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="92" lean-forward="true" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
+            <state relative-caret-position="530">
+              <caret line="61" column="40" lean-forward="true" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="boxplot_accuracy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Boxplot/script/boxplot_accuracy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="46" lean-forward="true" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_accuracy.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Boxplot/data/data_accuracy.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-time.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Boxplot/index-time.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -107,6 +139,8 @@
         <option value="$PROJECT_DIR$/Boxplot/script/box.js" />
         <option value="$PROJECT_DIR$/Boxplot/script/boxplot.js" />
         <option value="$PROJECT_DIR$/Boxplot/index.html" />
+        <option value="$PROJECT_DIR$/Boxplot/index-accuracy.html" />
+        <option value="$PROJECT_DIR$/Boxplot/script/boxplot_accuracy.js" />
       </list>
     </option>
   </component>
@@ -177,6 +211,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\nvtng\Projects\GitHub\VRParallelSet\Boxplot" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\nvtng\Projects\GitHub\VRParallelSet\Boxplot\data" />
+      <recent name="E:\nvtng\Projects\GitHub\VRParallelSet\Boxplot\script" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -203,12 +246,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536363285182</updated>
       <workItem from="1536363286305" duration="774000" />
-      <workItem from="1536364084426" duration="5445000" />
+      <workItem from="1536364084426" duration="6960000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6219000" />
+    <option name="totallyTimeSpent" value="7734000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1165" y="87" width="1400" height="951" extended-state="0" />
@@ -284,14 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Boxplot/data/data.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="92" lean-forward="true" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Boxplot/script/boxplot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -310,8 +345,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Boxplot/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="323">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/data/data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/index-time.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/data/data_accuracy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/script/boxplot_accuracy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="46" lean-forward="true" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/index-accuracy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="61" column="40" lean-forward="true" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
           <folding />
         </state>
       </provider>
