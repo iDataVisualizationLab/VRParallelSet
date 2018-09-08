@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d60b4b62-ad8c-4d73-9bcc-c79f3eab2881" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Boxplot/data/data_accuracy.csv" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Boxplot/index-accuracy.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Boxplot/script/boxplot_accuracy.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Boxplot/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Boxplot/data/data.csv" afterPath="$PROJECT_DIR$/Boxplot/data/data.csv" />
+      <change beforePath="$PROJECT_DIR$/Boxplot/data/data_accuracy.csv" afterPath="$PROJECT_DIR$/Boxplot/data/data_accuracy.csv" />
+      <change beforePath="$PROJECT_DIR$/Boxplot/script/boxplot.js" afterPath="$PROJECT_DIR$/Boxplot/script/boxplot.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/Boxplot/data/data.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+              <caret line="10" column="69" lean-forward="true" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -33,8 +32,8 @@
       <file leaf-file-name="index-accuracy.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Boxplot/index-accuracy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="61" column="40" lean-forward="true" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+            <state relative-caret-position="71">
+              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -63,8 +62,8 @@
       <file leaf-file-name="index-time.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boxplot/index-time.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -73,8 +72,8 @@
       <file leaf-file-name="box.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boxplot/script/box.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="194" column="33" lean-forward="false" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="33" />
+            <state relative-caret-position="246">
+              <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -83,8 +82,8 @@
       <file leaf-file-name="boxplot.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boxplot/script/boxplot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="121" column="54" lean-forward="false" selection-start-line="121" selection-start-column="54" selection-end-line="121" selection-end-column="54" />
+            <state relative-caret-position="246">
+              <caret line="116" column="20" lean-forward="false" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -101,7 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>v4</find>
       <find>whiskers</find>
       <find>rect</find>
       <find>box</find>
@@ -115,7 +113,6 @@
       <find>label</find>
       <find>showLabels</find>
       <find>format</find>
-      <find>tickFormat</find>
       <find>xAx</find>
       <find>x</find>
       <find>margin</find>
@@ -126,7 +123,13 @@
       <find>Comple</find>
       <find>width*(0.5 - 0.4)</find>
       <find>Model</find>
+      <find>floor</find>
+      <find>floo</find>
+      <find>rou</find>
       <find>tick</find>
+      <find>tickFormat</find>
+      <find>x1</find>
+      <find>Time</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,10 +140,10 @@
       <list>
         <option value="$PROJECT_DIR$/Boxplot/data/data.csv" />
         <option value="$PROJECT_DIR$/Boxplot/script/box.js" />
-        <option value="$PROJECT_DIR$/Boxplot/script/boxplot.js" />
         <option value="$PROJECT_DIR$/Boxplot/index.html" />
         <option value="$PROJECT_DIR$/Boxplot/index-accuracy.html" />
         <option value="$PROJECT_DIR$/Boxplot/script/boxplot_accuracy.js" />
+        <option value="$PROJECT_DIR$/Boxplot/script/boxplot.js" />
       </list>
     </option>
   </component>
@@ -246,12 +249,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536363285182</updated>
       <workItem from="1536363286305" duration="774000" />
-      <workItem from="1536364084426" duration="6960000" />
+      <workItem from="1536364084426" duration="9113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7734000" />
+    <option name="totallyTimeSpent" value="9887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1165" y="87" width="1400" height="951" extended-state="0" />
@@ -327,22 +330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Boxplot/script/boxplot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="121" column="54" lean-forward="false" selection-start-line="121" selection-start-column="54" selection-end-line="121" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Boxplot/script/box.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="194" column="33" lean-forward="false" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Boxplot/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -354,15 +341,7 @@
     <entry file="file://$PROJECT_DIR$/Boxplot/data/data.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Boxplot/index-time.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <caret line="10" column="69" lean-forward="true" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -383,10 +362,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/index-time.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/script/box.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boxplot/script/boxplot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="116" column="20" lean-forward="false" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Boxplot/index-accuracy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="61" column="40" lean-forward="true" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+        <state relative-caret-position="71">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
           <folding />
         </state>
       </provider>

@@ -114,7 +114,7 @@ d3.csv("./data/data.csv", function(error, csv) {
         .attr("dx", "-1.8em")
         .style("text-anchor", "end")
         .style("font-size", "16px")
-        .text("Time response (sec)");
+        .text("Time (sec)");
 
     // draw x axis
     svg.append("g")
