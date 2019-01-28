@@ -21,7 +21,7 @@ function Stack(coord, newCoord, values, len, colors, attributes, group)
     var totalValue = 0;
     for( var v=0; v<values.length; v++)
     {
-        values[v] = values[v] * ratio;
+        values[v] = values[v] * ratio * CHART_RATIO;
         totalValue+=values[v];
     }
 
@@ -42,6 +42,7 @@ function Stack(coord, newCoord, values, len, colors, attributes, group)
     // addArch( value of arch, color of arch )
     function addArch(value, color)
     {
+        // value = LEN / value;
         var top = tempTopValue;
         var down = top-value;
         tempTopValue-= value;
@@ -57,6 +58,7 @@ function Stack(coord, newCoord, values, len, colors, attributes, group)
         if( ARCH )
         {
             arch.moveTo( 0 , 0 );
+            // arch.splineThru([new THREE.Vector2( dist/2,top ),new THREE.Vector2( dist,0 ),new THREE.Vector2( dist/2,down ),new THREE.Vector2( 0,0 )])
             arch.quadraticCurveTo(dist/2,top,dist,0);
             arch.quadraticCurveTo(dist/2,down,0,0);
         }
@@ -75,12 +77,17 @@ function Stack(coord, newCoord, values, len, colors, attributes, group)
     function addShape( shape, extrudeSettings, color, x, y, z, rx, ry, rz, s )
     {
         var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-        var arch = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( { color: color } ) );
+        var material = new THREE.MeshStandardMaterial( { color: color } );
+        var arch = new THREE.Mesh( geometry, material );
+        // arch.geometry.computeVertexNormals(true);
+        
+
         arch.position.set( x, y, z );
         arch.rotation.set( rx, ry, rz );
         arch.scale.set( s, s, s );
         arch.material.transparent = true;
         arch.attributes = attributes;
+        arch.name = "arch";
         group.add( arch );
     }
 }

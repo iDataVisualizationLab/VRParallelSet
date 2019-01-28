@@ -17,7 +17,7 @@ var LEN;
 var ARCH;
 var pointer;
 var TIMER;
-var DV_ORDER = ["3D","2D","VR"];
+var DV_ORDER = ["3D","2D","3D"];
 var CURRENT_DVD = DV_ORDER.length-1;
 var Q_TIMER;
 var QUESTION = ["Which class was the least populated?",
@@ -32,52 +32,48 @@ var QUESTION = ["Which class was the least populated?",
                 "Which class had more female perished than female survivors?",
                 "How confident were you in answering the questions for this visualization (1-10)? 10 = most confident"];
 var CURRENT_Q = QUESTION.length;
+var CSV_FILE = "resources/datasets/titanic.csv";
+
+HIVE = false;
+STEAM = false;
+ARCH = true;
+
+generateVisualization();
 
 function generateVisualization()
 {
-    // toggleFullScreen();
-    generate2DGraph();
+    startField = "class";
+    ignoreFields = [];
+
+    for(var i=0; i<ignoreFields.length; i++)
+        ignoreFields[i] = ignoreFields[i].toLowerCase();
+
+    // var binFields = [ ["sepal_length",4], ["sepal_width",4], ["petal_length",4], ["petal_width",4] ];
+    var binFields = [];
+    var csv = loadFile(null);
+    table = new ProcessedTable( startField, ignoreFields, binFields, csv );
+
     generate3DGraph();
 }
 
 function generate2DGraph()
 {
-    var chart = d3.parsets().dimensions( [ "Class", "Age", "Sex", "Survived" ]);
+    var chart = d3.parsets().dimensions( ["Class","Age","Sex","Survived"] );
 	var vis = d3.select( "#vis" ).append( "svg" ).attr( "width" , chart.width() ).attr( "height", chart.height() );
-	d3.csv( "resources/datasets/titanic.csv", function(error, csv) { vis.datum( csv ).call( chart ); } );
+	d3.csv( CSV_FILE, function(error, csv) { vis.datum( csv ).call( chart ); } );
 }
 
 function generate3DGraph()
 {
-    startField = document.getElementById("start_field").value.toLowerCase();
-    ignoreFields = document.getElementById("ignore_fields").value.split(",");
-
-    for(var i=0; i<ignoreFields.length; i++)
-        ignoreFields[i] = ignoreFields[i].trim().toLowerCase();
-
-    file = document.getElementById("csvfile").files[0];
     //console.log(document.getElementById("csvdata").value)
 
-    if(file)
-        table = new ProcessedTable(startField, ignoreFields, loadFile(file));
-    else
-        table = new ProcessedTable(startField, ignoreFields, loadFile(null));
-
-    CHART_RATIO = 2;
-    LEN = table.length / CHART_RATIO;
-
-    document.getElementById("title").style.display = "none";
-    document.getElementById("inputs").style.display = "none";
-
-    if( isTraining )
-        document.getElementById("settings").style.display = "block";
-    else
-        document.getElementById("prompt").style.display = "block";
+    LEN = 1;
+    CHART_RATIO = LEN / table.length;
 
 
     init();
 
-    nextQ(1);
+    // nextQ(1);
 
     resetChart(null);
 

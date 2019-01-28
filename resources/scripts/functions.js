@@ -1,47 +1,128 @@
+AFRAME.registerComponent('boxes', {
+    init: function () {
+      var box;
+      var columns = 20;
+      var el = this.el;
+      var i;
+      var j;
+      var rows = 15;
+      if (el.sceneEl.isMobile) {
+        columns = 10;
+        rows = 5;
+      };
+      for (x = columns / -2; x < columns / 2; x++) {
+        for (y = 0.5; y < rows; y++) {
+          box = document.createElement('a-entity');
+          box.setAttribute('mixin', 'box');
+          box.setAttribute('position', {x: x * .6, y: y * .6, z: 1.5});
+          el.appendChild(box);
+        }
+      }
+    }
+  });
+
 function init()
 {
+
     clock = new THREE.Clock();
 
-    // container = document.createElement( 'div' );
-    // document.body.appendChild( container );
+    initScene();
+    initCamera();
+    initLight();
+    initSurface();
+    initInteractions();
+    initRenderer();
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0xffffff );
-    scene.visible = false;
-
-    camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, LEN * 10 );
-
-    pointer = new Pointer( "resources/media/circled-dot.png" );
-    camera.add( pointer );
-    pointer.position.set(0,0,-1000);
-    pointer.visible = false;
-
-    scene.add( camera );
-
-    var light = new THREE.PointLight( 0xffffff, 0.8 );
-    camera.add( light );
-
-    raycaster = new THREE.Raycaster();
-    mouse = new THREE.Vector2();
-
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.getElementById("container").appendChild( renderer.domElement );
-
-    controls = new THREE.OrbitControls( camera );
-    controls.update();
-
-    window.requestAnimationFrame( render );
     window.addEventListener( 'mousedown', onDocumentMouseDown, false );
-    window.addEventListener( 'touchstart', onDocumentTouchStart, false );
-    window.addEventListener( 'touchend', onDocumentTouchEnd, false );
-    window.addEventListener( 'resize', onWindowResize, false );
+    // window.addEventListener( 'touchstart', onDocumentTouchStart, false );
+    // window.addEventListener( 'touchend', onDocumentTouchEnd, false );
+}
 
-    //document.body.appendChild( WEBVR.createButton( renderer ) );
+function initCamera()
+{
+    cameraHolder = document.querySelector('a-entity').object3D;
+    cameraHolder.name = "cameraHolder";
 
+    document.querySelector('a-camera').object3D.name = "hppc_camera_group";
+    camera = document.querySelector('a-camera').object3D.children[1];
+    camera.name = "camera";
+    // camera.position.z = -2;
+
+    pointer = camera.el.lastElementChild.object3D.children[0];
+
+    pointer.material.depthTest = true;
+    pointer.name = "pointer";
 
 }
+
+// inits
+
+function initScene()
+{
+    scene = document.querySelector('a-scene').object3D;
+    scene.background = new THREE.Color( 0xffffff );
+    scene.position.z = -2;
+}
+
+function initLight()
+{
+    var light1 = document.getElementById("light1").object3D;
+    var light2 = document.getElementById("light2").object3D;
+    var light3 = document.getElementById("light3").object3D;
+    var light4 = document.getElementById("light4").object3D;
+
+    var height = LEN * 2;
+    var dist = LEN/0.25;
+
+    // back lights
+    light1.position.set( -dist, height, -dist);
+    light2.position.set( LEN * (table[0].length) + dist, height, -dist);
+
+    // front lights
+    light3.position.set( -dist, height, LEN + dist);
+    light4.position.set( LEN * (table[0].length) + dist, height, LEN + dist);
+}
+
+function initInteractions()
+{
+    raycaster = new THREE.Raycaster();
+    mouse = new THREE.Vector2();
+}
+
+function initSurface()
+{
+    var surface_geometry = new THREE.BoxGeometry( LEN * table[0].length, LEN/20, LEN*1.5 );
+    var surface = new THREE.Mesh( surface_geometry, new THREE.MeshPhongMaterial( { color: 0xbababa, shininess: 50 } ) );
+    surface.position.set( (LEN/2) * (table[0].length-1), -LEN/25, LEN/2);
+    surface.name = "table";
+    scene.add( surface );
+
+    var floor_geometry = new THREE.PlaneGeometry( 20, 20 );
+    var floor = new THREE.Mesh( floor_geometry, new THREE.MeshPhongMaterial( { color: 0x333333, shininess: 50 } ) );
+    floor.position.set( (LEN/2) * (table[0].length-1), -2.5, LEN/2);
+    floor.rotateX(-Math.PI/2);
+    floor.name = "floor";
+    // scene.add( floor );
+
+    // move camera to center
+    cameraHolder.position.x = (LEN/2) * (table[0].length-1);
+    cameraHolder.position.z = LEN;
+}
+
+function initRenderer()
+{
+    // renderer = document.querySelector('a-scene').renderer;
+    // renderer.setClearColor( 0xCCCCCC );
+    // renderer.setPixelRatio( window.devicePixelRatio );
+    // renderer.setSize( window.innerWidth, window.innerHeight );
+    // renderer.vr.enabled  = true;
+    // renderer.vr.standing = true;
+    // renderer.shadowMap.enabled = true;
+    // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+}
+
+
+// chart functions
 
 function changePlot( id )
 {
@@ -255,18 +336,6 @@ function resetChart(filtration)
     if( chartTmp != null )
         chartTmp.removeFromScene();
 
-    HIVE = document.getElementById("hive").checked;
-    STEAM = document.getElementById("steamTrue").checked;
-    ARCH = document.getElementById("archTrue").checked;
-
-    if( !VR )
-    {
-        if( HIVE )
-            controls.target.set( 0, LEN/2, 0 );
-        else
-            controls.target.set( (LEN/2) * (table[0].length-1), LEN/2, LEN/2 );
-    }
-
     chart = new Chart(table, filtration);
     chart.addToScene();
 }
@@ -291,70 +360,47 @@ function loadFile( file )
     }
     else
     {
-        return $.csv.toArrays($.ajax({
-                url: "resources/datasets/titanic.csv",
-                async: false,
-                success: function (csvd) {
-                    data = $.csv.toArrays(csvd);
-                }
-            }).responseText)
-    }
-}
+        var tmp = $.csv.toArrays($.ajax({
+            url: CSV_FILE,
+            async: false,
+            success: function (csvd) { data = $.csv.toArrays(csvd); },
+            dataType: "text",
+        }).responseText);
 
-function toggleFullScreen()
-{
-    if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
-     (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-      if (document.documentElement.requestFullScreen) {  
-        document.documentElement.requestFullScreen();  
-      } else if (document.documentElement.mozRequestFullScreen) {  
-        document.documentElement.mozRequestFullScreen();  
-      } else if (document.documentElement.webkitRequestFullScreen) {  
-        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
-      }  
-    } else {  
-      if (document.cancelFullScreen) {  
-        document.cancelFullScreen();  
-      } else if (document.mozCancelFullScreen) {  
-        document.mozCancelFullScreen();  
-      } else if (document.webkitCancelFullScreen) {  
-        document.webkitCancelFullScreen();  
-      }  
-    }  
+        return tmp;
+    }
 }
 
 // Events
 
-function setOrientationControls(e)
+function filterChart( obj )
 {
-    if (!e.alpha)
-      return;
-}
+    var name = obj.name;
+            
+    if( FILTERED == 0 )
+    {
+        if( name == "cylinder" | name == "arch" )
+        {
 
-function onWindowResize()
-{
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+            FILTERED = 1;
 
-    if( !VR )
-        renderer.setSize( window.innerWidth, window.innerHeight );
-    else
-        effect.setSize( window.innerWidth, window.innerHeight );
+            var ifield1 = obj.attributes.field1;
+            var ifield2 = obj.attributes.field2;
+            var ioption1 = obj.attributes.option1;
+            var ioption2 = obj.attributes.option2;
+
+            resetChart([ifield1,ioption1,ifield2,ioption2]);
+
+        }
+    }
 }
 
 function onDocumentMouseDown( event )
 {
     event.preventDefault();
-    var rect = renderer.domElement.getBoundingClientRect();
 
-    mouse.x = ( ( event.clientX - rect.left ) / rect.width ) * 2 - 1;
-    mouse.y = - ( ( event.clientY - rect.top ) / rect.height ) * 2 + 1;
-
-    if( !VR )
-        raycaster.setFromCamera( mouse, camera );
-    else
-        raycaster.setFromCamera( new THREE.Vector2( 0, 0 ) , camera );
-
+    if( event.isTrusted ) return;
+    raycaster.setFromCamera( new THREE.Vector2( 0, 0 ) , camera );
     var intersects = raycaster.intersectObjects( chart.group.children );
 
     if ( intersects.length > 0 )
@@ -362,24 +408,7 @@ function onDocumentMouseDown( event )
         if ( INTERSECTED != intersects[ 0 ].object )
         {
             INTERSECTED = intersects[ 0 ].object;
-            var itype = INTERSECTED.geometry.type;
-            
-            if( FILTERED == 0 )
-            {
-                if( itype == "CylinderGeometry" | itype == "ExtrudeGeometry" )
-                {
-
-                    FILTERED = 1;
-
-                    var ifield1 = INTERSECTED.attributes.field1;
-                    var ifield2 = INTERSECTED.attributes.field2;
-                    var ioption1 = INTERSECTED.attributes.option1;
-                    var ioption2 = INTERSECTED.attributes.option2;
-
-                    resetChart([ifield1,ioption1,ifield2,ioption2]);
-
-                }
-            }
+            filterChart( INTERSECTED );
         }
     }
     else
@@ -398,9 +427,11 @@ function onDocumentTouchStart( event )
     {
         event.preventDefault();
         TIMER = setInterval( function()
-                                {
-                                    camera.translateZ( -10 );
-                                } , 10);
+                            {
+                                var direction = new THREE.Vector3().copy(camera.getWorldDirection());
+                                cameraHolder.position.add(direction.multiplyScalar(0.01));
+                                cameraHolder.position.y = -1.5;
+                            } , 5);
     }
 }
 
@@ -409,20 +440,75 @@ function onDocumentTouchEnd( event )
     if( TIMER ) clearInterval(TIMER);
 }
 
+function onControllerClicked( event )
+{
+    var controller = event.detail;
+    scene.add( controller );
+
+    controller.standingMatrix = renderer.vr.getStandingMatrix();
+    controller.head = window.camera;
+
+	var meshColorOff = 0xDB3236,//  Red.
+	meshColorOn  = 0xF4C20D,//  Yellow.
+	controllerMaterial = new THREE.MeshStandardMaterial({
+		color: meshColorOff
+	}),
+	controllerMesh = new THREE.Mesh(
+		new THREE.CylinderGeometry( 0.005, 0.05, 0.1, 6 ),
+		controllerMaterial
+	),
+	handleMesh = new THREE.Mesh(
+		new THREE.BoxGeometry( 0.03, 0.1, 0.03 ),
+		controllerMaterial
+    )
+    
+	controllerMaterial.flatShading = true;
+	controllerMesh.rotation.x = -Math.PI / 2;
+	handleMesh.position.y = -0.05;
+	controllerMesh.add( handleMesh );
+	controller.userData.mesh = controllerMesh; //  So we can change the color later.
+	controller.add( controllerMesh );
+	castShadows( controller );
+    receiveShadows( controller );
+    
+
+    controller.addEventListener( 'primary press began', function( event )
+    {
+        INTERSECTED = event.target.userData.mesh;
+
+        if( INTERSECTED == null )
+        {
+            if( FILTERED != 0 )
+            {
+                resetChart(null);
+            }
+            FILTERED = 0;
+        }
+        else
+        {
+            resetChart( INTERSECTED );
+        }
+    });
+    
+    controller.addEventListener( 'disconnected', function( event ){
+		controller.parent.remove( controller );
+	});
+
+}
+
 // Animate & Render
 
 function animate()
 {
     requestAnimationFrame( animate );
-    renderer.setAnimationLoop( render );
-    controls.update();
-    render();
+    // THREE.VRController.update();
+    // render();
 }
 
 function render()
 {
-    if( effect == null )
-        renderer.render( scene, camera );
-    else
-        effect.render( scene, camera );
+    // if( effect == null )
+        // renderer.render( scene, camera );
+    // else
+        // effect.render( scene, camera );
 }

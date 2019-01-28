@@ -13,7 +13,10 @@ function Column( coord, values, len, colors, attributes, group)
 
     var totalValue = 0;
     for( var v=0; v<values.length; v++)
+    {
+        values[v] = values[v] * CHART_RATIO;
         totalValue+=values[v];
+    }
 
     if ( totalValue >= 0 )
     {
@@ -35,10 +38,11 @@ function Column( coord, values, len, colors, attributes, group)
         tempTopValue-= value;
 
         var geometry = new THREE.CylinderGeometry( len/50, len/50, value, 32 );
-        var cylinder = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: color } ) );
+        var cylinder = new THREE.Mesh( geometry, new THREE.MeshStandardMaterial( { color: color } ) );
         cylinder.position.set( x, tempTopValue+value/2 + y, z );
         cylinder.material.transparent = true;
         cylinder.attributes = attributes;
+        cylinder.name = "cylinder";
         group.add( cylinder );
     }
 }
