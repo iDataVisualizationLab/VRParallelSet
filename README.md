@@ -1,4 +1,4 @@
-# TitanicVR: Data Visualization of Titanic Datasets
+# VRParallelSet: Data Visualization of Multidimensional Data
 VR Website: https://idatavisualizationlab.github.io/VRParallelSet/<br>
 Note: Compatible with Google Cardboard and Supermedium (Oculus)
 
