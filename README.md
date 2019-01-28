@@ -5,7 +5,7 @@ Note: Compatible with Google Cardboard and Supermedium (Oculus)
 VR/3D/2D Website: https://idatavisualizationlab.github.io/VRParallelSet/3D/<br>
 Note: VR only compatible with Google Cardboard
 
-## Descriptionx
+## Description
 
 This application is intended to visualize stacked graphs through distinct graph settings and visualization techniques. The application allows for an educated comparison between these multiple settings, as well as a comparison between the provided visualization methods and other common graph representation, such as 2D charts.
 
