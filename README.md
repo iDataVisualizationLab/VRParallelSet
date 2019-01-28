@@ -11,8 +11,8 @@ This application is intended to visualize stacked graphs through distinct graph 
 
 ![ScreenShot](https://github.com/iDataVisualizationLab/VRParallelSet/blob/master/resources/media/teaser.png)
 ![ScreenShot](https://github.com/iDataVisualizationLab/VRParallelSet/blob/master/resources/media/teaser3.png)
-![ScreenShot](https://github.com/iDataVisualizationLab/VRParallelSet/blob/master/resources/media/cars_3d_1.png.png)
-![ScreenShot](https://github.com/iDataVisualizationLab/VRParallelSet/blob/master/resources/media/cars_3d_4.png.png)
+![ScreenShot](https://github.com/iDataVisualizationLab/VRParallelSet/blob/master/resources/media/cars_3d_1.png)
+![ScreenShot](https://github.com/iDataVisualizationLab/VRParallelSet/blob/master/resources/media/cars_3d_4.png)
 
 ## Objective
 
